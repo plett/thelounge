@@ -1,6 +1,7 @@
 <template>
 	<!-- TODO: move closed style to it's own class -->
 	<div
+		ref="element"
 		v-if="
 			!network.isCollapsed ||
 				channel.highlight ||
@@ -52,7 +53,8 @@ export default {
 			if (this.channel.type === "lobby") {
 				cmd = "/quit";
 
-				if (!confirm(`Are you sure you want to remove ${this.channel.name}?`)) { // eslint-disable-line no-alert
+				if (!confirm(`Are you sure you want to remove ${this.channel.name}?`)) {
+					// eslint-disable-line no-alert
 					return false;
 				}
 			}
